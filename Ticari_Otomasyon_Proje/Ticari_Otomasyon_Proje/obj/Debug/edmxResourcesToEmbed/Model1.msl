@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbTicariOtomasyonModelStoreContainer" CdmEntityContainer="DbTicariOtomasyonEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCARI">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLCARI">
+        <MappingFragment StoreEntitySet="TBLCARI">
+          <ScalarProperty Name="CARIID" ColumnName="CARIID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="IL" ColumnName="IL" />
+          <ScalarProperty Name="ILCE" ColumnName="ILCE" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+          <ScalarProperty Name="VERGIDAIRESI" ColumnName="VERGIDAIRESI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCARIHAREKET">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLCARIHAREKET">
+        <MappingFragment StoreEntitySet="TBLCARIHAREKET">
+          <ScalarProperty Name="SATISID" ColumnName="SATISID" />
+          <ScalarProperty Name="URUN" ColumnName="URUN" />
+          <ScalarProperty Name="CARI" ColumnName="CARI" />
+          <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="ADET" ColumnName="ADET" />
+          <ScalarProperty Name="BIRIMFIYAT" ColumnName="BIRIMFIYAT" />
+          <ScalarProperty Name="TOPLAM" ColumnName="TOPLAM" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLDEPARTMAN">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLDEPARTMAN">
+        <MappingFragment StoreEntitySet="TBLDEPARTMAN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DEPARTMANAD" ColumnName="DEPARTMANAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLFIRMA">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLFIRMA">
+        <MappingFragment StoreEntitySet="TBLFIRMA">
+          <ScalarProperty Name="FIRMAID" ColumnName="FIRMAID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SEKTOR" ColumnName="SEKTOR" />
+          <ScalarProperty Name="YETKILI" ColumnName="YETKILI" />
+          <ScalarProperty Name="YETKILISTATU" ColumnName="YETKILISTATU" />
+          <ScalarProperty Name="YETKILITC" ColumnName="YETKILITC" />
+          <ScalarProperty Name="YETKILITELEFON" ColumnName="YETKILITELEFON" />
+          <ScalarProperty Name="FIRMATELEFON" ColumnName="FIRMATELEFON" />
+          <ScalarProperty Name="IL" ColumnName="IL" />
+          <ScalarProperty Name="ILCE" ColumnName="ILCE" />
+          <ScalarProperty Name="VERGIDAIRESI" ColumnName="VERGIDAIRESI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLFIRMAHAREKET">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLFIRMAHAREKET">
+        <MappingFragment StoreEntitySet="TBLFIRMAHAREKET">
+          <ScalarProperty Name="SATISID" ColumnName="SATISID" />
+          <ScalarProperty Name="URUN" ColumnName="URUN" />
+          <ScalarProperty Name="FIRMA" ColumnName="FIRMA" />
+          <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="ADET" ColumnName="ADET" />
+          <ScalarProperty Name="BIRIMFIYAT" ColumnName="BIRIMFIYAT" />
+          <ScalarProperty Name="TOPLAM" ColumnName="TOPLAM" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLGIDERLER">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLGIDERLER">
+        <MappingFragment StoreEntitySet="TBLGIDERLER">
+          <ScalarProperty Name="GIDERID" ColumnName="GIDERID" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLILCELER">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLILCELER">
+        <MappingFragment StoreEntitySet="TBLILCELER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ILCE" ColumnName="ILCE" />
+          <ScalarProperty Name="SEHIR" ColumnName="SEHIR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLILLER">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLILLER">
+        <MappingFragment StoreEntitySet="TBLILLER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SEHIR" ColumnName="SEHIR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLKASA">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLKASA">
+        <MappingFragment StoreEntitySet="TBLKASA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLKATEGORI">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLKATEGORI">
+        <MappingFragment StoreEntitySet="TBLKATEGORI">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KATEGORIAD" ColumnName="KATEGORIAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLNOTLAR">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLNOTLAR">
+        <MappingFragment StoreEntitySet="TBLNOTLAR">
+          <ScalarProperty Name="NOTID" ColumnName="NOTID" />
+          <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
+          <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="SAAT" ColumnName="SAAT" />
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLPERSONEL">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLPERSONEL">
+        <MappingFragment StoreEntitySet="TBLPERSONEL">
+          <ScalarProperty Name="PERSONELID" ColumnName="PERSONELID" />
+          <ScalarProperty Name="PERSONELAD" ColumnName="PERSONELAD" />
+          <ScalarProperty Name="PERSONELSOYAD" ColumnName="PERSONELSOYAD" />
+          <ScalarProperty Name="PERSONELDEPARTMAN" ColumnName="PERSONELDEPARTMAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLURUN">
+      <EntityTypeMapping TypeName="DbTicariOtomasyonModel.TBLURUN">
+        <MappingFragment StoreEntitySet="TBLURUN">
+          <ScalarProperty Name="URUNID" ColumnName="URUNID" />
+          <ScalarProperty Name="URUNAD" ColumnName="URUNAD" />
+          <ScalarProperty Name="ALISFIYAT" ColumnName="ALISFIYAT" />
+          <ScalarProperty Name="SATISFIYAT" ColumnName="SATISFIYAT" />
+          <ScalarProperty Name="STOK" ColumnName="STOK" />
+          <ScalarProperty Name="KRITIKSEVIYE" ColumnName="KRITIKSEVIYE" />
+          <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

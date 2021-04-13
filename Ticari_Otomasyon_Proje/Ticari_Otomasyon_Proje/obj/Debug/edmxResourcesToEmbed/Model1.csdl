@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbTicariOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TBLCARI">
+    <Key>
+      <PropertyRef Name="CARIID" />
+    </Key>
+    <Property Name="CARIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ILCE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="ADRES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="VERGIDAIRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLCARIHAREKET" Relationship="Self.FK_TBLCARIHAREKET_TBLCARI" FromRole="TBLCARI" ToRole="TBLCARIHAREKET" />
+  </EntityType>
+  <EntityType Name="TBLCARIHAREKET">
+    <Key>
+      <PropertyRef Name="SATISID" />
+    </Key>
+    <Property Name="SATISID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URUN" Type="Int32" />
+    <Property Name="CARI" Type="Int32" />
+    <Property Name="PERSONEL" Type="Int32" />
+    <Property Name="TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ADET" Type="Int16" />
+    <Property Name="BIRIMFIYAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TOPLAM" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLCARI" Relationship="Self.FK_TBLCARIHAREKET_TBLCARI" FromRole="TBLCARIHAREKET" ToRole="TBLCARI" />
+    <NavigationProperty Name="TBLPERSONEL" Relationship="Self.FK_TBLCARIHAREKET_TBLPERSONEL" FromRole="TBLCARIHAREKET" ToRole="TBLPERSONEL" />
+    <NavigationProperty Name="TBLURUN" Relationship="Self.FK_TBLCARIHAREKET_TBLURUN" FromRole="TBLCARIHAREKET" ToRole="TBLURUN" />
+  </EntityType>
+  <EntityType Name="TBLDEPARTMAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEPARTMANAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLPERSONEL" Relationship="Self.FK_TBLPERSONEL_TBLDEPARTMAN" FromRole="TBLDEPARTMAN" ToRole="TBLPERSONEL" />
+  </EntityType>
+  <EntityType Name="TBLFIRMA">
+    <Key>
+      <PropertyRef Name="FIRMAID" />
+    </Key>
+    <Property Name="FIRMAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SEKTOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="YETKILI" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="YETKILISTATU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="YETKILITC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="YETKILITELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FIRMATELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ILCE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="VERGIDAIRESI" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLFIRMAHAREKET" Relationship="Self.FK_TBLFIRMAHAREKET_TBLFIRMA" FromRole="TBLFIRMA" ToRole="TBLFIRMAHAREKET" />
+  </EntityType>
+  <EntityType Name="TBLFIRMAHAREKET">
+    <Key>
+      <PropertyRef Name="SATISID" />
+    </Key>
+    <Property Name="SATISID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URUN" Type="Int32" />
+    <Property Name="FIRMA" Type="Int32" />
+    <Property Name="PERSONEL" Type="Int32" />
+    <Property Name="TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ADET" Type="Int16" />
+    <Property Name="BIRIMFIYAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TOPLAM" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLFIRMA" Relationship="Self.FK_TBLFIRMAHAREKET_TBLFIRMA" FromRole="TBLFIRMAHAREKET" ToRole="TBLFIRMA" />
+    <NavigationProperty Name="TBLPERSONEL" Relationship="Self.FK_TBLFIRMAHAREKET_TBLPERSONEL" FromRole="TBLFIRMAHAREKET" ToRole="TBLPERSONEL" />
+    <NavigationProperty Name="TBLURUN" Relationship="Self.FK_TBLFIRMAHAREKET_TBLURUN" FromRole="TBLFIRMAHAREKET" ToRole="TBLURUN" />
+  </EntityType>
+  <EntityType Name="TBLGIDERLER">
+    <Key>
+      <PropertyRef Name="GIDERID" />
+    </Key>
+    <Property Name="GIDERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TUTAR" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TBLILCELER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ILCE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SEHIR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="TBLILLER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SEHIR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBLKASA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TUTAR" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TBLKATEGORI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KATEGORIAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLURUN" Relationship="Self.FK_TBLURUN_TBLKATEGORI" FromRole="TBLKATEGORI" ToRole="TBLURUN" />
+  </EntityType>
+  <EntityType Name="TBLNOTLAR">
+    <Key>
+      <PropertyRef Name="NOTID" />
+    </Key>
+    <Property Name="NOTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ICERIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TARIH" Type="DateTime" Precision="0" />
+    <Property Name="SAAT" Type="Time" Precision="7" />
+    <Property Name="DURUM" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TBLPERSONEL">
+    <Key>
+      <PropertyRef Name="PERSONELID" />
+    </Key>
+    <Property Name="PERSONELID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PERSONELAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PERSONELSOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PERSONELDEPARTMAN" Type="Byte" />
+    <NavigationProperty Name="TBLCARIHAREKET" Relationship="Self.FK_TBLCARIHAREKET_TBLPERSONEL" FromRole="TBLPERSONEL" ToRole="TBLCARIHAREKET" />
+    <NavigationProperty Name="TBLDEPARTMAN" Relationship="Self.FK_TBLPERSONEL_TBLDEPARTMAN" FromRole="TBLPERSONEL" ToRole="TBLDEPARTMAN" />
+    <NavigationProperty Name="TBLFIRMAHAREKET" Relationship="Self.FK_TBLFIRMAHAREKET_TBLPERSONEL" FromRole="TBLPERSONEL" ToRole="TBLFIRMAHAREKET" />
+  </EntityType>
+  <EntityType Name="TBLURUN">
+    <Key>
+      <PropertyRef Name="URUNID" />
+    </Key>
+    <Property Name="URUNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URUNAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ALISFIYAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SATISFIYAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="STOK" Type="Int16" />
+    <Property Name="KRITIKSEVIYE" Type="Boolean" />
+    <Property Name="KATEGORI" Type="Int32" />
+    <NavigationProperty Name="TBLCARIHAREKET" Relationship="Self.FK_TBLCARIHAREKET_TBLURUN" FromRole="TBLURUN" ToRole="TBLCARIHAREKET" />
+    <NavigationProperty Name="TBLFIRMAHAREKET" Relationship="Self.FK_TBLFIRMAHAREKET_TBLURUN" FromRole="TBLURUN" ToRole="TBLFIRMAHAREKET" />
+    <NavigationProperty Name="TBLKATEGORI" Relationship="Self.FK_TBLURUN_TBLKATEGORI" FromRole="TBLURUN" ToRole="TBLKATEGORI" />
+  </EntityType>
+  <Association Name="FK_TBLCARIHAREKET_TBLCARI">
+    <End Role="TBLCARI" Type="Self.TBLCARI" Multiplicity="0..1" />
+    <End Role="TBLCARIHAREKET" Type="Self.TBLCARIHAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLCARI">
+        <PropertyRef Name="CARIID" />
+      </Principal>
+      <Dependent Role="TBLCARIHAREKET">
+        <PropertyRef Name="CARI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLCARIHAREKET_TBLPERSONEL">
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+    <End Role="TBLCARIHAREKET" Type="Self.TBLCARIHAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLPERSONEL">
+        <PropertyRef Name="PERSONELID" />
+      </Principal>
+      <Dependent Role="TBLCARIHAREKET">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLCARIHAREKET_TBLURUN">
+    <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="0..1" />
+    <End Role="TBLCARIHAREKET" Type="Self.TBLCARIHAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLURUN">
+        <PropertyRef Name="URUNID" />
+      </Principal>
+      <Dependent Role="TBLCARIHAREKET">
+        <PropertyRef Name="URUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLPERSONEL_TBLDEPARTMAN">
+    <End Role="TBLDEPARTMAN" Type="Self.TBLDEPARTMAN" Multiplicity="0..1" />
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLPERSONEL">
+        <PropertyRef Name="PERSONELDEPARTMAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLFIRMAHAREKET_TBLFIRMA">
+    <End Role="TBLFIRMA" Type="Self.TBLFIRMA" Multiplicity="0..1" />
+    <End Role="TBLFIRMAHAREKET" Type="Self.TBLFIRMAHAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLFIRMA">
+        <PropertyRef Name="FIRMAID" />
+      </Principal>
+      <Dependent Role="TBLFIRMAHAREKET">
+        <PropertyRef Name="FIRMA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLFIRMAHAREKET_TBLPERSONEL">
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+    <End Role="TBLFIRMAHAREKET" Type="Self.TBLFIRMAHAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLPERSONEL">
+        <PropertyRef Name="PERSONELID" />
+      </Principal>
+      <Dependent Role="TBLFIRMAHAREKET">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLFIRMAHAREKET_TBLURUN">
+    <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="0..1" />
+    <End Role="TBLFIRMAHAREKET" Type="Self.TBLFIRMAHAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLURUN">
+        <PropertyRef Name="URUNID" />
+      </Principal>
+      <Dependent Role="TBLFIRMAHAREKET">
+        <PropertyRef Name="URUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUN_TBLKATEGORI">
+    <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+    <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLKATEGORI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUN">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbTicariOtomasyonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TBLCARI" EntityType="Self.TBLCARI" />
+    <EntitySet Name="TBLCARIHAREKET" EntityType="Self.TBLCARIHAREKET" />
+    <EntitySet Name="TBLDEPARTMAN" EntityType="Self.TBLDEPARTMAN" />
+    <EntitySet Name="TBLFIRMA" EntityType="Self.TBLFIRMA" />
+    <EntitySet Name="TBLFIRMAHAREKET" EntityType="Self.TBLFIRMAHAREKET" />
+    <EntitySet Name="TBLGIDERLER" EntityType="Self.TBLGIDERLER" />
+    <EntitySet Name="TBLILCELER" EntityType="Self.TBLILCELER" />
+    <EntitySet Name="TBLILLER" EntityType="Self.TBLILLER" />
+    <EntitySet Name="TBLKASA" EntityType="Self.TBLKASA" />
+    <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" />
+    <EntitySet Name="TBLNOTLAR" EntityType="Self.TBLNOTLAR" />
+    <EntitySet Name="TBLPERSONEL" EntityType="Self.TBLPERSONEL" />
+    <EntitySet Name="TBLURUN" EntityType="Self.TBLURUN" />
+    <AssociationSet Name="FK_TBLCARIHAREKET_TBLCARI" Association="Self.FK_TBLCARIHAREKET_TBLCARI">
+      <End Role="TBLCARI" EntitySet="TBLCARI" />
+      <End Role="TBLCARIHAREKET" EntitySet="TBLCARIHAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLCARIHAREKET_TBLPERSONEL" Association="Self.FK_TBLCARIHAREKET_TBLPERSONEL">
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+      <End Role="TBLCARIHAREKET" EntitySet="TBLCARIHAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLCARIHAREKET_TBLURUN" Association="Self.FK_TBLCARIHAREKET_TBLURUN">
+      <End Role="TBLURUN" EntitySet="TBLURUN" />
+      <End Role="TBLCARIHAREKET" EntitySet="TBLCARIHAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLPERSONEL_TBLDEPARTMAN" Association="Self.FK_TBLPERSONEL_TBLDEPARTMAN">
+      <End Role="TBLDEPARTMAN" EntitySet="TBLDEPARTMAN" />
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLFIRMAHAREKET_TBLFIRMA" Association="Self.FK_TBLFIRMAHAREKET_TBLFIRMA">
+      <End Role="TBLFIRMA" EntitySet="TBLFIRMA" />
+      <End Role="TBLFIRMAHAREKET" EntitySet="TBLFIRMAHAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLFIRMAHAREKET_TBLPERSONEL" Association="Self.FK_TBLFIRMAHAREKET_TBLPERSONEL">
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+      <End Role="TBLFIRMAHAREKET" EntitySet="TBLFIRMAHAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLFIRMAHAREKET_TBLURUN" Association="Self.FK_TBLFIRMAHAREKET_TBLURUN">
+      <End Role="TBLURUN" EntitySet="TBLURUN" />
+      <End Role="TBLFIRMAHAREKET" EntitySet="TBLFIRMAHAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUN_TBLKATEGORI" Association="Self.FK_TBLURUN_TBLKATEGORI">
+      <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+      <End Role="TBLURUN" EntitySet="TBLURUN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
